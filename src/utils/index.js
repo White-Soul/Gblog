@@ -8,15 +8,18 @@
  * @param {string} cFormat
  * @returns {string | null}
  */
+// 格式化时间
 export function parseTime(time, cFormat) {
   if (arguments.length === 0) {
     return null
   }
   const format = cFormat || '{y}-{m}-{d} {h}:{i}:{s}'
   let date
+  // time是object
   if (typeof time === 'object') {
     date = time
   } else {
+    // time是string
     if ((typeof time === 'string')) {
       if ((/^[0-9]+$/.test(time))) {
         // support "1548221490638"
@@ -43,7 +46,7 @@ export function parseTime(time, cFormat) {
   const time_str = format.replace(/{([ymdhisa])+}/g, (result, key) => {
     const value = formatObj[key]
     // Note: getDay() returns 0 on Sunday
-    if (key === 'a') { return ['日', '一', '二', '三', '四', '五', '六'][value ] }
+    if (key === 'a') { return ['日', '一', '二', '三', '四', '五', '六'][value] }
     return value.toString().padStart(2, '0')
   })
   return time_str
@@ -54,6 +57,7 @@ export function parseTime(time, cFormat) {
  * @param {string} option
  * @returns {string}
  */
+// 计算当前时间距离过去多久
 export function formatTime(time, option) {
   if (('' + time).length === 10) {
     time = parseInt(time) * 1000
@@ -166,12 +170,12 @@ export function param2Obj(url) {
   }
   return JSON.parse(
     '{"' +
-      decodeURIComponent(search)
-        .replace(/"/g, '\\"')
-        .replace(/&/g, '","')
-        .replace(/=/g, '":"')
-        .replace(/\+/g, ' ') +
-      '"}'
+    decodeURIComponent(search)
+      .replace(/"/g, '\\"')
+      .replace(/&/g, '","')
+      .replace(/=/g, '":"')
+      .replace(/\+/g, ' ') +
+    '"}'
   )
 }
 
@@ -262,7 +266,7 @@ export function getTimeInterval(startDate, endDate = Date.now()) {
   } else {
     endTime = endDate;
   }
-  let dateInterval =  endTime - startTime;
+  let dateInterval = endTime - startTime;
   // //计算出相差天数
   let days = Math.floor(dateInterval / (24 * 60 * 60 * 1000));
   //计算小时数
@@ -285,7 +289,7 @@ export function getTimeInterval(startDate, endDate = Date.now()) {
 export function debounce(func, wait, immediate) {
   let timeout, args, context, timestamp, result
 
-  const later = function() {
+  const later = function () {
     // 据上一次触发时间间隔
     const last = +new Date() - timestamp
 
@@ -302,7 +306,7 @@ export function debounce(func, wait, immediate) {
     }
   }
 
-  return function(...args) {
+  return function (...args) {
     context = this
     timestamp = +new Date()
     const callNow = immediate && !timeout

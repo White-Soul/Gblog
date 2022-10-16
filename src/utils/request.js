@@ -1,11 +1,13 @@
 import axios from 'axios'
 import store from '@/store'
 
+console.log('process.env :>> ', process.env);
 // create an axios instance
 const service = axios.create({
-    baseURL: process.env.VUE_APP_BASE_API,
-    timeout: 5000 // request timeout
+    timeout: 5000, // request timeout
+    withCredentials: true
 })
+
 
 // request interceptor
 service.interceptors.request.use(
@@ -41,11 +43,11 @@ service.interceptors.response.use(
         // store.commit('SET_LOADING',false);
 
         // if the custom code is not 20000, it is judged as an error.
-        if (res.code !== 20000) {
-            return Promise.reject(new Error(res.message || 'Error'))
-        } else {
-            return res
-        }
+        // if (res.code !== 1) {
+        //     return Promise.reject(new Error(res.message || 'Error'))
+        // } else {
+        return res
+        // }
     },
     error => {
         console.log('err' + error) // for debug

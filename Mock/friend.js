@@ -1,8 +1,8 @@
 const Mock = require('mockjs');
 const List = [{
     id: 0,
-    siteName: "FZY′blog",
-    path: "https://www.fengziy.cn",
+    siteName: "Crazy blog",
+    path: "https://unown.asia",
     desc: "一个It技术的探索者"
 }]
 const count = 15
@@ -20,7 +20,7 @@ export default [
     {
         url: '/friend',
         type: 'get',
-        response: config => {
+        response: () => {
             return {
                 code: 20000,
                 data: List

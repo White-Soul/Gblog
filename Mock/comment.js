@@ -9,13 +9,13 @@ const banners = [
 ]
 function getComment(count) {
     let List = [];
-    mockComment(count,null).map(item => {
+    mockComment(count, null).map(item => {
         let count = 1 + ~~(Math.random() * 5)
-        List.push({comment: item,reply: mockComment(count,item.id,item.fromUserName)})
+        List.push({ comment: item, reply: mockComment(count, item.id, item.fromUserName) })
     })
     return List;
 }
-function mockComment(count,id,userName) {
+function mockComment(count, id, userName) {
     let List = [];
     for (let i = 0; i < count; i++) {
         List.push(Mock.mock({
@@ -28,7 +28,7 @@ function mockComment(count,id,userName) {
             content: '@ctitle(20,50)',
             createTime: +Mock.Random.date('T'),
             toUserId: id,
-            toUserName: userName||'@cname',
+            toUserName: userName || '@cname',
             'toUserAvatar|+1': banners,
         }))
     }

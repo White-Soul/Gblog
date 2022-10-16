@@ -8,10 +8,10 @@ export default [
             return {
                 code: 20000,
                 data: {
-                    avatar: 'https://s2.ax1x.com/2020/01/17/1SCadg.png',
+                    avatar: 'http://localhost:8888/photo.jpg',
                     slogan: 'The way up is not crowded, and most chose ease.',
-                    name: 'FZY′blog',
-                    domain: 'https://www.fengziy.cn',
+                    name: 'Acidcola',
+                    domain: 'https://unown.asia',
                     notice: '本博客的Demo数据由Mockjs生成',
                     desc: '一个It技术的探索者'
                 }
@@ -31,28 +31,28 @@ export default [
                         title: 'QQ',
                         icon: 'iconqq',
                         color: '#1AB6FF ',
-                        href: 'http://wpa.qq.com/msgrd?v=3&uin=1224971566&site=qq&menu=yes'
+                        href: 'QQ'
                     },
                     {
                         id: 2,
                         title: 'Gitee',
                         icon: 'icongitee',
                         color: '#d81e06',
-                        href: 'https://gitee.com/fengziy'
+                        href: 'Gitee'
                     },
                     {
                         id: 3,
                         title: 'GitHub',
                         icon: 'icongithub',
                         color: '',
-                        href: 'https://github.com/fengziye'
+                        href: 'Github'
                     },
                     {
                         id: 4,
                         title: 'CSDN',
                         icon: 'iconcsdn',
                         color: 'red',
-                        href: 'https://blog.csdn.net/feng_zi_ye'
+                        href: 'CSDN'
                     }
                 ]
             }

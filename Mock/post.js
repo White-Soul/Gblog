@@ -30,7 +30,7 @@ for (let i = 0; i < count; i++) {
         'banner|+1': banners,
         'isHot|1-3': true,
         pubTime: +Mock.Random.date('T'),
-        title: Mock.Random.ctitle(10,20),
+        title: Mock.Random.ctitle(10, 20),
         summary: Mock.Random.cparagraph(),
         content: baseContent,
         viewsCount: '@integer(300, 5000)',
@@ -43,15 +43,15 @@ export default [
         url: '/post/list',
         type: 'get',
         response: config => {
-            let {page = 1, size = 10} = config.query;
+            let { page = 1, size = 10 } = config.query;
             page = page instanceof Number ? page : parseInt(page)
             size = size instanceof Number ? size : parseInt(size)
             const pageList = List.filter((item, index) => index < size * page && index >= size * (page - 1));
             return {
                 code: 20000,
                 data: {
-                    total:List.length,
-                    items:pageList.sort((a,b)=>a.isTop===b.isTop?0:a.isTop?-1:1),
+                    total: List.length,
+                    items: pageList.sort((a, b) => a.isTop === b.isTop ? 0 : a.isTop ? -1 : 1),
                     hasNextPage: page * size < List.length,
                     page: page,
                     size: size
